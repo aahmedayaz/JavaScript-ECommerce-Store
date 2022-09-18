@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root{
+    --color: #034b1b;
+    --primary:black;
+    --secondary: white;
+    --side-panel:#4A6163;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;   
+}
+
+/*********************************************************/
+/********************* NavBar Started ******************/
+/*********************************************************/
+
+.nav-bar{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 70px;
+    background-color: var(--color);
+    position: fixed;
+    top: 0;
+    color: var(--secondary);
+}
+
+@media screen and (max-width: 590px){
+    .nav-bar{
+        padding: 5px 40px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .nav-bar{
+        padding: 5px 25px;
+    }
+}
+
+.main-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+@media screen and (max-width: 710px){
+    .main-heading{
+        font-size: 20px;
+        gap: 10px;
+    }
+    
+    .list-items{
+        padding: 0px 10px !important;
+    }
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    height: 10vh;
+    align-items: center;
+}
+
+.list-items{
+    padding: 0px 25px;
+}
+
+.list-items a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--secondary);
+    display: inline-block;
+    transition: transform 0.3s linear;
+}
+
+.list-items a:hover{
+    border-bottom: 3px solid var(--secondary);
+    transform: scale(1.2);
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    gap: 1em;
+}
+
+.icons i{
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 1px solid var(--secondary);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.icons .fa-bars{
+    display: none;
+}
+
+@media screen and (max-width: 460px){
+
+    .icons .fa-bars{
+        display: block;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .nav-bar{
+        padding: 5px 40px;
+    }
+
+    .list{
+        flex-direction: column;
+        position: fixed;
+        align-items: center;
+        left: 0;
+        top: 10vh;
+        height: 90vh;
+        z-index: 8;
+        width: 100%;
+        background-color: var(--secondary);
+        text-align: center;
+        transition: all 0.3s ease;
+        transform: translateX(100%);
+    }
+
+    .list.show{
+        transform: translateX(0%);
+        z-index: 10;
+    }
+
+    .list .list-items{
+        width: 100%;
+        height: 60px;
+        border-bottom: 3px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .list-items a{
+        color: black;
+    }
+}
+
+
+/*********************************************************/
+/********************* NavBar Completed ******************/
+/*********************************************************/
+
+
+/*********************************************************/
+/********************* Search Box Started ****************/
+/*********************************************************/
+
+
+.search-container{
+    margin-top: 18vh;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search-container .heading{
+    font-size: 3vw;
+    margin-bottom: 15px;
+}
+
+.search-div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+@media screen and (max-width: 460px){
+
+    .search-container{
+        margin-top: 12vh;
+    }
+
+}
+
+.search-div input{
+    width: 100%;
+    border-radius: 35px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: 3px solid var(--color);
+}
+
+.search-div input::placeholder{
+    color: var(--side-panel);
+    font-size: larger;
+}
+
+.search-div input:focus {
+    outline: none;
+    border: 3px solid #4A6163;
+    z-index: 25;
+}
+
+.search-div i{
+    color: var(--color);
+    border: 3px solid var(--color);
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s linear;
+}
+
+.search-div i:hover{
+    color: var(--secondary);
+    background-color: var(--color);
+    border-color: var(--secondary);
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 710px) {
+    
+    .search-container{
+        margin-top: 15vh;
+    }
+
+    .search-container .heading{
+        font-size: 5vw;
+        margin-bottom: 15px;
+    }
+
+    .search-div{
+        width: 80%;
+    }
+    .search-div input{
+        padding: 10px;
+        font-size: 14px;
+        border-width: 2px;
+    }
+
+    .search-div i{
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+
+/*********************************************************/
+/******************** Search Box Completed ***************/
+/*********************************************************/
+
+
+/*********************************************************/
+/******************** Side Panel Started ***************/
+/*********************************************************/
+
+
+.main-side-panel{
+    width: 23%;
+    height: 90vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 10vh;
+    border-left: 2px solid var(--color);
+    transition: all 0.3s linear;
+    transform: translateX(100%);
+    background-color: var(--secondary);
+}
+
+@media screen and (max-width: 900px){
+    .main-side-panel{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .main-side-panel{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .main-side-panel{
+        width: 100%;
+    }
+}
+
+
+.main-side-panel.show{
+    transform: translateX(0%);
+    z-index: 9;
+}
+
+.main-side-panel .content{
+    margin-top: 25px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
+}
+
+.main-side-panel .content .content-text{
+    padding: 10px 15px;
+    border-top: 2px solid var(--color);
+    border-bottom: 2px solid var(--color);
+}
+
+.checkout{
+    width: 100px;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+    margin: 0 auto;
+}
+
+.checkout:hover{
+    color: var(--secondary);
+    background-color: var(--color);
+    border: none;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************/
+/******************** Side Panel Completed ***************/
+/*********************************************************/
+
+
