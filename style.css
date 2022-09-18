@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 480px){
     .nav-bar{
-        padding: 5px 25px;
+        padding: 5px 35px;
     }
 }
 
@@ -61,6 +61,8 @@
     }
 }
 
+
+
 .list{
     list-style: none;
     display: flex;
@@ -69,7 +71,7 @@
 }
 
 .list-items{
-    padding: 0px 25px;
+    padding: 0px 15px;
 }
 
 .list-items a{
@@ -87,6 +89,7 @@
 }
 
 .icons{
+    margin-right: -60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +97,23 @@
     gap: 1em;
 }
 
-.icons i{
+.icons .notification{
+    position: relative;
+    top: -19px;
+    left: -25px;
+    right: 0;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: #ffc53e;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons i , .main-side-panel #close-btn{
     width: 40px;
     height: 40px;
     justify-content: center;
@@ -103,6 +122,13 @@
     border: 1px solid var(--secondary);
     border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.3s linear;
+}
+
+.icons i:hover{
+    background-color: var(--secondary);
+    color: var(--color);
+    transform: scale(1.1);
 }
 
 .icons .fa-bars{
@@ -135,7 +161,7 @@
         width: 100%;
         background-color: var(--secondary);
         text-align: center;
-        transition: all 0.3s ease;
+        transition: all 0.6s ease;
         transform: translateX(100%);
     }
 
@@ -156,6 +182,12 @@
 
     .list-items a{
         color: black;
+    }
+}
+
+@media screen and (max-width: 520px){
+    .list-items a{
+        font-weight: lighter;
     }
 }
 
@@ -287,6 +319,20 @@
     background-color: var(--secondary);
 }
 
+.main-side-panel #close-btn{
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 3px solid var(--color) !important;
+}
+
+.main-side-panel #close-btn:hover{
+    transform: scale(1.1);
+    color: white;
+    background-color: var(--color);
+}
+
+
 @media screen and (max-width: 900px){
     .main-side-panel{
         width: 40%;
@@ -346,7 +392,18 @@
 }
 
 
+/*********************************************************/
+/******************** Products Started ***************/
+/*********************************************************/
 
+
+
+
+
+
+/*********************************************************/
+/******************** Products Completed ***************/
+/*********************************************************/
 
 
 

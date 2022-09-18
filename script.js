@@ -23,3 +23,21 @@ cartBtn.addEventListener('click' , () => {
         sidePanel.classList.add('show');
     }
 })
+
+let closeBtn = document.getElementById('close-btn');
+closeBtn.addEventListener('click' , () => {
+    sidePanel.classList.remove('show');
+})
+
+
+// Event Listener for Navbar to disbale after clicking 
+
+let target = document.getElementById('list1').querySelectorAll('.list-items');
+target.forEach(
+    (element) => {
+        element.addEventListener('click' , () => {
+            list1.classList.remove('show');
+            barBtn.classList.replace('fa-xmark' , 'fa-bars')
+        })
+    }
+)
