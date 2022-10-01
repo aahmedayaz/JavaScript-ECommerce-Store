@@ -41,3 +41,69 @@ target.forEach(
         })
     }
 )
+
+
+// Setting Attribute to All AddToCart Buttons
+
+let addToCartButtons = document.getElementsByClassName('add-to-cart');
+let addToCartArray = Array.from(addToCartButtons);
+
+addToCartArray.forEach((product , index) => {
+   product.setAttribute('data-index' , `${index}`)
+})
+
+
+// Add Products to SidePanel
+
+let AllProducts = document.getElementsByClassName('product');
+let AllProductsArray = Array.from(AllProducts);
+let cartContainer = document.getElementById('cartContainer');
+let newBtn = document.getElementById('remove-btn');
+let oldBtn = document.querySelector('.add-to-cart');
+
+AllProductsArray.forEach((product) => {
+    let addingBtn = product.querySelector('button');
+    addingBtn.addEventListener('click' , () => {
+        let cloneProduct = product.cloneNode(true);
+        cloneProduct.setAttribute('class' , 'cart-product');
+        let cloneImg = cloneProduct.querySelector('img');
+        cloneImg.setAttribute('class' , 'cart-product-img')
+        let cloneDetail = cloneProduct.querySelector('div');
+        cloneDetail.setAttribute('class' , 'cart-details')
+        let cloneCategory = cloneProduct.querySelector('p');
+        cloneCategory.setAttribute('class' , 'cart-category')
+        let cloneStatement = cloneProduct.querySelector('span');
+        cloneStatement.setAttribute('class' , 'cart-statement')
+        let clonePrice = cloneProduct.querySelector('span').querySelector('span');
+        clonePrice.setAttribute('class' , 'cart-price');
+        let cloneBtn = cloneProduct.querySelector('button');
+        cloneBtn.setAttribute('class' , 'remove-btn');
+        cloneBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        cartContainer.append(cloneProduct);
+
+        //Remove Product from cart when we click remove btn
+        cloneBtn.addEventListener('click', e => {
+            cloneProduct.classList.add('hide')
+        })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
