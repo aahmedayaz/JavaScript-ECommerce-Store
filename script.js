@@ -60,31 +60,54 @@ let AllProductsArray = Array.from(AllProducts);
 let cartContainer = document.getElementById('cartContainer');
 let newBtn = document.getElementById('remove-btn');
 let oldBtn = document.querySelector('.add-to-cart');
+let cartTotalTag = document.getElementById('total-bill');
+let  notification = document.getElementById('notification');
+let noti = 0;
+let totalBill = 0;
+
 
 AllProductsArray.forEach((product) => {
-    let addingBtn = product.querySelector('button');
-    addingBtn.addEventListener('click' , () => {
-        let cloneProduct = product.cloneNode(true);
-        cloneProduct.setAttribute('class' , 'cart-product');
-        let cloneImg = cloneProduct.querySelector('img');
-        cloneImg.setAttribute('class' , 'cart-product-img')
-        let cloneDetail = cloneProduct.querySelector('div');
-        cloneDetail.setAttribute('class' , 'cart-details')
-        let cloneCategory = cloneProduct.querySelector('p');
-        cloneCategory.setAttribute('class' , 'cart-category')
-        let cloneStatement = cloneProduct.querySelector('span');
-        cloneStatement.setAttribute('class' , 'cart-statement')
-        let clonePrice = cloneProduct.querySelector('span').querySelector('span');
-        clonePrice.setAttribute('class' , 'cart-price');
-        let cloneBtn = cloneProduct.querySelector('button');
-        cloneBtn.setAttribute('class' , 'remove-btn');
-        cloneBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-        cartContainer.append(cloneProduct);
+        
+        let addingBtn = product.querySelector('button');
+        addingBtn.addEventListener('click' , () => {
+            noti +=1;
+            notification.innerText = noti;
+            let cloneProduct = product.cloneNode(true);
+            
+            cloneProduct.setAttribute('class' , 'cart-product');
+            let cloneImg = cloneProduct.querySelector('img');
+            cloneImg.setAttribute('class' , 'cart-product-img')
 
-        //Remove Product from cart when we click remove btn
-        cloneBtn.addEventListener('click', e => {
-            cloneProduct.classList.add('hide')
-        })
+            let cloneDetail = cloneProduct.querySelector('div');
+            cloneDetail.setAttribute('class' , 'cart-details')
+
+            let cloneCategory = cloneProduct.querySelector('p');
+            cloneCategory.setAttribute('class' , 'cart-category')
+
+            let cloneStatement = cloneProduct.querySelector('span');
+            cloneStatement.setAttribute('class' , 'cart-statement')
+
+            let clonePrice = cloneProduct.querySelector('span').querySelector('span');
+            totalBill = totalBill + parseInt(clonePrice.innerText)
+            cartTotalTag.innerText = totalBill;
+            clonePrice.setAttribute('class' , 'cart-price');
+
+
+            let cloneBtn = cloneProduct.querySelector('button');
+            cloneBtn.setAttribute('class' , 'remove-btn');
+            cloneBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            cartContainer.append(cloneProduct);
+
+
+            //Remove Product from cart when we click remove btn
+            cloneBtn.addEventListener('click', e => {
+                noti -=1;
+                notification.innerText = noti;
+
+                totalBill = totalBill - parseInt(clonePrice.innerText)
+                cartTotalTag.innerText = totalBill;
+                cloneProduct.classList.add('hide')
+            })
     })
 })
 
